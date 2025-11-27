@@ -1,0 +1,110 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/PGqR0tBy/1.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/hFkjvtVk/2.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Rental",
+    "providerName": "WarmPaws Comfort Hub",
+    "providerEmail": "support@warmpaws.com",
+    "price": 18,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Cozy heated beds to ensure pets stay warm during cold winter nights.",
+    "image": "https://i.ibb.co.com/zh8pM5cM/3.jpg",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Nutrition & Supplement Plan",
+    "providerName": "HealthyTail Pet Clinic",
+    "providerEmail": "contact@healthytail.com",
+    "price": 22,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Customized winter diet planning with immunity boosters suitable for pets.",
+    "image": "https://i.ibb.co.com/PvCJFbx2/4.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Snow Walk Assistance & Safety Gear Check",
+    "providerName": "FrostyPet Walkers",
+    "providerEmail": "service@frostypet.com",
+    "price": 15,
+    "rating": 4.6,
+    "slotsAvailable": 7,
+    "description": "Guided winter walks with safety boot checks and warm protection gear.",
+    "image": "https://i.ibb.co.com/r2MNF4Ky/5.jpg",
+    "category": "Outdoor"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Indoor Warm Play Session for Everyone",
+    "providerName": "SnugglePet Activity Center",
+    "providerEmail": "play@snugglepet.com",
+    "price": 12,
+    "rating": 4.8,
+    "slotsAvailable": 10,
+    "description": "Fun and engaging indoor activities that keep pets warm and active during winter.",
+    "image": "https://i.ibb.co.com/m5twrs3Q/6.png",
+    "category": "Activity"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Winter Fur Moisturizing Treatment",
+    "providerName": "PetSilk Wellness Studio",
+    "providerEmail": "care@petsilk.com",
+    "price": 28,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Deep moisturizing treatment to prevent fur dryness and skin irritation in winter.",
+    "image": "https://i.ibb.co.com/TMQzXKNk/7.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Warm Shelter Boarding Service",
+    "providerName": "ComfortNest Pet Lodge",
+    "providerEmail": "board@comfortnest.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Heated indoor boarding rooms with cozy blankets and 24/7 monitoring.",
+    "image": "https://i.ibb.co.com/mVNQnQt7/8.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Winter Hydration & Wellness Checkup",
+    "providerName": "VetGlow Animal Care",
+    "providerEmail": "support@vetglow.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 8,
+    "description": "Full checkup focused on hydration, respiratory health, and cold-weather safety.",
+    "image": "https://i.ibb.co.com/sdVkMNMd/9.jpg",
+    "category": "Health"
+  }
+]
