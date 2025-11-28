@@ -43,21 +43,13 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <Link to={'/'}>Home</Link>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <Link to={'/services'}>Services</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to={'/profile'}>My Profile</Link>
             </li>
           </ul>
         </div>
@@ -74,7 +66,7 @@ const Navbar = () => {
             <Link to={'/services'}>Services</Link>
           </li>
           <li>
-            <Link>My Profile</Link>
+            <Link to={'/profile'}>My Profile</Link>
           </li>
         </ul>
       </div>

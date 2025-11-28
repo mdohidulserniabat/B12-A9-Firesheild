@@ -1,30 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const handleLogin = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log({ email, password });
+    login(email, password)
+      .then(userCredential => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        alert('login successfully');
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
+
   return (
     <div className="hero bg-base-200 ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full min-w-lg shrink-0 ">
-          <div className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <h1 className="text-2xl font-bold">Login</h1>
             <fieldset className="fieldset">
               <label className="label">Email</label>
               <input
                 type="email"
+                name="email"
                 className="input w-full"
                 placeholder="Email"
               />
               <label className="label">Password</label>
               <input
                 type="password"
+                name="password"
                 className="input w-full"
                 placeholder="Password"
               />
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-neutral mt-4">Login</button>
+              <button type="submit" className="btn btn-neutral mt-4">
+                Login
+              </button>
 
               <h1 className="font-semibold text-xl">Or</h1>
               <button className="btn bg-white text-black border-[#e5e5e5]">
@@ -65,7 +90,7 @@ const Login = () => {
                 </span>
               </h1>
             </fieldset>
-          </div>
+          </form>
         </div>
       </div>
     </div>

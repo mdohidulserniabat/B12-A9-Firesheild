@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 const Popular = () => {
   const [services, setServices] = useState();
@@ -35,7 +36,12 @@ const Popular = () => {
                 </h3>
               </div>
               <div className="card-actions justify-end mt-5">
-                <button className="btn btn-primary w-full">View Details</button>
+                <Link
+                  to={`/service/details/${service.serviceId}`}
+                  className="btn btn-primary w-full"
+                >
+                  View Details
+                </Link>
               </div>
             </div>
           </div>
