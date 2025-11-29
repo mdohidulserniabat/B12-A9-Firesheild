@@ -30,7 +30,7 @@ const Login = () => {
     googleSignIn()
       .then(result => {
         const user = result.user;
-        navigate('/profile');
+        navigate('/');
         toast.success(`Welcome ${user.displayName}`);
       })
       .catch(error => {
