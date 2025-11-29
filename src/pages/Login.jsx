@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogin = e => {
     e.preventDefault();
@@ -16,12 +16,24 @@ const Login = () => {
       .then(userCredential => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
-        navigate('/');
+
+        navigate('/profile');
       })
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        toast.error(error.message);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(result => {
+        const user = result.user;
+        navigate('/profile');
+        toast.success(`Welcome ${user.displayName}`);
+      })
+      .catch(error => {
         toast.error(error.message);
       });
   };
@@ -57,7 +69,11 @@ const Login = () => {
               </button>
 
               <h1 className="font-semibold text-xl">Or</h1>
-              <button className="btn bg-white text-black border-[#e5e5e5]">
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                className="btn bg-white text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"

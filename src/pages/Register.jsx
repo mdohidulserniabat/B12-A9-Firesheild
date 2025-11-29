@@ -66,6 +66,7 @@ const Register = () => {
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        toast.error(errorMessage);
         // ..
       });
   };
@@ -74,11 +75,11 @@ const Register = () => {
     googleSignIn()
       .then(result => {
         const user = result.user;
-        console.log('Google User:', user);
+        navigate('/');
         toast.success(`Welcome ${user.displayName}`);
       })
       .catch(error => {
-        console.error(error.message);
+        toast.error(error.message);
       });
   };
 
