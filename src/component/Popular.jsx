@@ -32,7 +32,7 @@ const Popular = () => {
                   <span className="text-blue-600">{service.rating}</span>
                 </h3>
                 <h3 className="font-medium ">
-                  Rating: <span className="text-blue-600">{service.price}</span>
+                  Price: <span className="text-blue-600">{service.price}</span>
                 </h3>
               </div>
               <div className="card-actions justify-end mt-5">

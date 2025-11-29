@@ -12,7 +12,7 @@ const Services = () => {
     <div>
       <h1 className="text-2xl font-semibold py-3">Popular</h1>
 
-      <div className="grid grid-cols-3 mx-[80px] gap-6 mb-4">
+      <div className="grid grid-cols-1  sm:grid-cols-3 mx-[20px] sm:mx-[80px] gap-6 mb-4">
         {services?.map(service => (
           <div key={service.serviceId} className="card bg-base-100 shadow-sm">
             <figure>

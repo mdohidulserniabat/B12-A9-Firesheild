@@ -27,7 +27,7 @@ const Details = () => {
 
   return (
     <div className="grid grid-cols-12 gap-5">
-      <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden col-span-8 my-6">
+      <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden col-span-12 sm:col-span-8 my-6">
         {/* Image */}
         <div className="relative w-full h-80 overflow-hidden">
           <img
@@ -62,7 +62,7 @@ const Details = () => {
           <p>🟢 Slots: {service?.slotsAvailable}</p>
         </div>
       </div>
-      <div className="col-span-4">
+      <div className="col-span-12 sm:col-span-4">
         <div className="hero bg-base-200 ">
           <div className="hero-content flex-col lg:flex-row-reverse w-full">
             <form
