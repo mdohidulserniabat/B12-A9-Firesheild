@@ -14,7 +14,7 @@ const Popular = () => {
     <div>
       <h1 className="text-2xl font-semibold py-3">Popular</h1>
 
-      <div className="grid grid-cols-3 mx-[80px] gap-6 mb-4">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 sm:mx-[80px] gap-6 mb-4">
         {services?.slice(0, 6).map(service => (
           <div className="card bg-base-100 shadow-sm">
             <figure>

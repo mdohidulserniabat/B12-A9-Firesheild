@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { AiOutlineMail } from 'react-icons/ai';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Profile = () => {
   const { user, updateUserProfile, setUser } = useContext(AuthContext);
@@ -8,6 +10,10 @@ const Profile = () => {
   const [name, setName] = useState('');
   const [photoURL, setPhotoURL] = useState('');
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -37,7 +43,7 @@ const Profile = () => {
               className="h-15 w-15 rounded-full border-4 border-amber-500"
             />
           </div>
-          <div>
+          <div data-aos="fade-up">
             <h1 className="text-4xl font-bold">{user?.displayName}</h1>
             <div className="flex justify-center items-center gap-2">
               <span className="text-2xl font-semibold">
