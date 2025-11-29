@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const Expertise = () => {
   return (
-    <div className="my-6">
+    <div className="my-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-semibold text-blue-700 my-5">Our Experts</h1>
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
         <div className="card bg-base-100 shadow-sm">
