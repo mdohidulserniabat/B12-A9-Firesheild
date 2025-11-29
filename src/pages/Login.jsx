@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogin = e => {
     e.preventDefault();
     const form = e.target;
@@ -15,11 +17,12 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        alert('login successfully');
+        navigate('/');
       })
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        toast.error(error.message);
       });
   };
 
@@ -45,7 +48,9 @@ const Login = () => {
                 placeholder="Password"
               />
               <div>
-                <a className="link link-hover">Forgot password?</a>
+                <Link to={'/rest-password'} className="link link-hover">
+                  Forgot password?
+                </Link>
               </div>
               <button type="submit" className="btn btn-neutral mt-4">
                 Login

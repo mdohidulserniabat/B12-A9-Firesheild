@@ -14,7 +14,7 @@ const Services = () => {
 
       <div className="grid grid-cols-3 mx-[80px] gap-6 mb-4">
         {services?.map(service => (
-          <div className="card bg-base-100 shadow-sm">
+          <div key={service.serviceId} className="card bg-base-100 shadow-sm">
             <figure>
               <img
                 src={service.image}

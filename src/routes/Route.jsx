@@ -7,6 +7,7 @@ import Services from '../pages/Services';
 import Profile from '../pages/Profile';
 import Details from '../pages/Details';
 import Privateroute from '../provider/Privateroute';
+import Passwordrest from '../pages/Passwordrest';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: '/rest-password',
+        Component: Passwordrest,
+      },
+      {
         path: '/services',
         Component: Services,
       },
@@ -37,7 +42,6 @@ const router = createBrowserRouter([
         path: '/service/details/:id',
         element: (
           <Privateroute>
-            {' '}
             <Details></Details>
           </Privateroute>
         ),

@@ -1,8 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router';
+import { toast } from 'react-toastify';
 
 const Details = () => {
+  const nameRef = useRef();
+  const emailRef = useRef();
+
+  const handleBook = e => {
+    e.preventDefault();
+    toast.success('Booked Successfully');
+    nameRef.current.value = '';
+    emailRef.current.value = '';
+  };
+
   const [service, setServices] = useState();
   const { id } = useParams();
   const data = useLoaderData();
@@ -54,19 +65,26 @@ const Details = () => {
       <div className="col-span-4">
         <div className="hero bg-base-200 ">
           <div className="hero-content flex-col lg:flex-row-reverse w-full">
-            <form className="card bg-base-100 w-full  shrink-0 shadow-xl">
+            <form
+              onSubmit={handleBook}
+              className="card bg-base-100 w-full  shrink-0 shadow-xl"
+            >
               <div className="card-body w-full">
                 <fieldset className="fieldset">
                   <label className="label">Name</label>
                   <input
+                    ref={nameRef}
                     type="name"
+                    name="name"
                     className="input"
                     placeholder="Name"
                     required
                   />
                   <label className="label">Name</label>
                   <input
+                    ref={emailRef}
                     type="email"
+                    name="email"
                     className="input"
                     placeholder="Email"
                     required

@@ -1,9 +1,29 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import Loading from '../component/Loading';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaEyeSlash, FaRegEyeSlash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-  const { setUser, register } = useContext(AuthContext);
+  const {
+    setUser,
+    register,
+    updateUserProfile,
+    loading,
+    setLoading,
+    googleSignIn,
+  } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
+
+  const navigate = useNavigate();
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   const handleSignUp = e => {
     e.preventDefault();
     console.log(e.target);
@@ -11,10 +31,37 @@ const Register = () => {
     const purl = e.target.purl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long');
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setPasswordError('Password must contain at least one uppercase letter');
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setPasswordError('Password must contain at least one lowercase letter');
+      return;
+    }
+
+    // Clear error if validation passed
+    setPasswordError('');
+
     register(email, password)
       .then(result => {
         const user = result.user;
-        setUser(user);
+
+        updateUserProfile({ displayName: name, photoURL: purl })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: purl });
+            navigate('/');
+            setLoading(false);
+          })
+          .catch(error => {
+            console.log(error);
+            setUser(user);
+          });
       })
       .catch(error => {
         const errorCode = error.code;
@@ -23,11 +70,23 @@ const Register = () => {
       });
   };
 
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(result => {
+        const user = result.user;
+        console.log('Google User:', user);
+        toast.success(`Welcome ${user.displayName}`);
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  };
+
   return (
     <div className="hero bg-[#dfe4ea] ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card  w-full min-w-lg shrink-0 bg-[#ced6e0]">
-          <form onSubmit={handleSignUp} className="card-body ">
+          <form onSubmit={handleSignUp} className="card-body">
             <h1 className="text-2xl font-bold">Sign Up</h1>
             <fieldset className="fieldset">
               <label className="label">Name</label>
@@ -51,22 +110,43 @@ const Register = () => {
                 className="input w-full"
                 placeholder="Enter your email"
               />
-              <label className="label">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="input w-full"
-                placeholder="Password"
-              />
-              <div>
-                <a className="link link-hover">Forgot password?</a>
+              <div className="relative">
+                <label className="label">Password</label>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  className="input w-full"
+                  placeholder="Password"
+                />
+                <span>
+                  {showPassword ? (
+                    <FaEyeSlash
+                      className="absolute right-3 top-1/2 cursor-pointer"
+                      onClick={() => setShowPassword(false)}
+                    />
+                  ) : (
+                    <IoEyeOutline
+                      className="absolute right-3 top-1/2 cursor-pointer"
+                      onClick={() => setShowPassword(true)}
+                    />
+                  )}
+                </span>
               </div>
+              {passwordError && (
+                <p className="text-red-600 font-semibold mt-1">
+                  {passwordError}
+                </p>
+              )}
               <button type="submit" className="btn btn-neutral mt-4">
                 Sign Up
               </button>
 
               <h1 className="font-semibold text-xl">Or</h1>
-              <button className="btn bg-white text-black border-[#e5e5e5]">
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                className="btn bg-white text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"
